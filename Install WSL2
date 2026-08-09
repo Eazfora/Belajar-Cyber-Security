@@ -1,0 +1,20 @@
+Disclaimer: Jangan menggunakan WSL2 untuk keperluan exploitasi
+
+Cara Migrasi dan Install Kali Linux di WSL2
+Sebenarnya download kali linux di store ( seperti pada microsoft store ), sepengalaman gw, download disitu gagal, gatau knp, jadi gw download by command prompt.
+
+Langkah 1: Jalankan Perintah Instalasi via PowerShell
+
+Klik Start Menu Windows.
+Cari PowerShell, klik kanan lalu pilih Run as Administrator.
+Salin dan tempel perintah di bawah ini, lalu tekan Enter: wsl --install -d kali-linux
+
+Langkah 2: Selesaikan Setup Akun
+
+Begitu proses unduhan selesai, sebuah jendela terminal hitam otomatis akan terbuka.
+Masukkan Username baru pilihan Anda (gunakan huruf kecil semua, misal: hacker), lalu tekan Enter.
+Masukkan Password baru, lalu tekan Enter. (Catatan: Saat mengetik password, karakter memang sengaja tidak ditampilkan demi keamanan. Tetap ketik saja lalu langsung tekan Enter).
+
+Langkah 2.1: Perintah ini untuk menginstal ribuan tools hacking bawaan Kali secara instan: sudo apt update && sudo apt install -y kali-linux-default
+langkah 2.2: Jika tutorial ethical hacking yang Anda ikuti membutuhkan aplikasi bermuka grafis (seperti Burp Suite, Wireshark, atau Maltego), WSL2 punya fitur canggih bernama Win-KeX: sudo apt install -y kali-win-kex
+Untuk menjalankannya, Anda cukup mengetik kex --esm --sound dan desktop Kali Linux akan langsung menyatu rapi dengan Windows Anda. 
