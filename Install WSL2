@@ -1,20 +1,61 @@
-Disclaimer: Jangan menggunakan WSL2 untuk keperluan exploitasi
-
 Cara Migrasi dan Install Kali Linux di WSL2
-Sebenarnya download kali linux di store ( seperti pada microsoft store ), sepengalaman gw, download disitu gagal, gatau knp, jadi gw download by command prompt.
+⚠️ Disclaimer: Jangan menggunakan WSL2 untuk keperluan eksploitasi yang tidak sah. Panduan ini ditujukan murni untuk keperluan edukasi dan ethical hacking.
 
-Langkah 1: Jalankan Perintah Instalasi via PowerShell
+Sepengalaman saya, mengunduh Kali Linux secara langsung melalui Microsoft Store terkadang sering mengalami kegagalan. Oleh karena itu, cara yang paling efektif adalah melakukan instalasi melalui Command Prompt / PowerShell.
 
-Klik Start Menu Windows.
+1. Jalankan Perintah Instalasi via PowerShell
+Klik Start Menu pada Windows.
+
 Cari PowerShell, klik kanan lalu pilih Run as Administrator.
-Salin dan tempel perintah di bawah ini, lalu tekan Enter: wsl --install -d kali-linux
 
-Langkah 2: Selesaikan Setup Akun
+Salin dan tempel perintah di bawah ini, lalu tekan Enter:
 
-Begitu proses unduhan selesai, sebuah jendela terminal hitam otomatis akan terbuka.
+Bash
+wsl --install -d kali-linux
+2. Selesaikan Setup Akun
+Begitu proses unduhan dan instalasi selesai, sebuah jendela terminal hitam akan otomatis terbuka.
+
 Masukkan Username baru pilihan Anda (gunakan huruf kecil semua, misal: hacker), lalu tekan Enter.
-Masukkan Password baru, lalu tekan Enter. (Catatan: Saat mengetik password, karakter memang sengaja tidak ditampilkan demi keamanan. Tetap ketik saja lalu langsung tekan Enter).
 
-Langkah 2.1: Perintah ini untuk menginstal ribuan tools hacking bawaan Kali secara instan: sudo apt update && sudo apt install -y kali-linux-default
-langkah 2.2: Jika tutorial ethical hacking yang Anda ikuti membutuhkan aplikasi bermuka grafis (seperti Burp Suite, Wireshark, atau Maltego), WSL2 punya fitur canggih bernama Win-KeX: sudo apt install -y kali-win-kex
-Untuk menjalankannya, Anda cukup mengetik kex --esm --sound dan desktop Kali Linux akan langsung menyatu rapi dengan Windows Anda. 
+Masukkan Password baru, lalu tekan Enter.
+
+Catatan: Saat mengetik password, karakter memang sengaja tidak ditampilkan di layar demi keamanan. Tetap ketik saja password Anda lalu langsung tekan Enter.
+
+3. Instalasi Tools Hacking bawaan
+Setelah sistem terinstal, Anda perlu mengunduh tools untuk keperluan pentesting. Pilih salah satu paket di bawah ini:
+
+Opsi A: Paket Lengkap (Default)
+Perintah ini untuk menginstal ribuan tools hacking bawaan Kali secara instan.
+
+Bash
+sudo apt update && sudo apt install -y kali-linux-default
+Opsi B: Paket Ringan (Top 10 Tools)
+Ukurannya jauh lebih kecil (hanya ratusan MB) tetapi sudah mencakup tools legendaris seperti Nmap, Wireshark, Metasploit, John the Ripper, dan Hydra.
+
+Bash
+sudo apt update && sudo apt install -y kali-linux-top10
+4. Menjalankan Mode Grafis (GUI) dengan Win-KeX
+Jika tutorial ethical hacking yang Anda ikuti membutuhkan aplikasi antarmuka grafis (seperti Burp Suite, Wireshark, atau Maltego), WSL2 memiliki fitur bernama Win-KeX.
+
+Install Win-KeX:
+
+Bash
+sudo apt install -y kali-win-kex
+Menjalankan Win-KeX:
+Untuk menjalankannya agar desktop Kali Linux menyatu rapi dengan Windows, gunakan perintah ini:
+
+Bash
+kex --esm --sound
+(Jika terjadi error, gunakan alternatif ini: kex --win --sound)
+
+Menghentikan Win-KeX:
+Untuk mematikan sesi yang menggantung (hanging session), jalankan perintah:
+
+Bash
+kex --stop
+💡 Kapan Harus Kembali ke VirtualBox?
+WSL2 memiliki satu keterbatasan fisik: sistem ini berbagi kartu jaringan (Network Card) dengan Windows.
+
+Wajib pindah ke VirtualBox jika: Materi belajar Anda sudah masuk ke bab Wireless Hacking (Bobol Wi-Fi). Materi ini membutuhkan perangkat keras tambahan berupa USB Wi-Fi Adapter eksternal untuk bisa masuk ke Monitor Mode.
+
+Tetap di WSL2 jika: Anda masih di tahap awal belajar ethical hacking (seperti Linux fundamental, information gathering, web pentesting, hingga eksplorasi database). Untuk kebutuhan ini, WSL2 jauh lebih nyaman, cepat, dan tidak membuat laptop menjadi lemot.
