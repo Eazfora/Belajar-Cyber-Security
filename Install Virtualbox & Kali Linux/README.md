@@ -86,7 +86,7 @@ Terdapat dua metode untuk memasang Kali Linux di VirtualBox. Pilih salah satu me
 ### Opsi A: Menggunakan Installer Images (Instalasi Manual)
 Metode ini digunakan jika Anda ingin mengonfigurasi dan melakukan proses instalasi sistem operasi secara mandiri dari awal.
 
-![SCREENSHOT](..\Gambar\VM-Installer.png)
+![SCREENSHOT](../Gambar/VM-Installer.png)
 
 * **Tautan Unduhan:** 🔗 [Kali Installer Images](https://www.kali.org/get-kali/#kali-installer-images)
 
@@ -100,7 +100,7 @@ Metode ini digunakan jika Anda ingin mengonfigurasi dan melakukan proses instala
 ### Opsi B: Menggunakan Pre-built Virtual Machines (Sangat Direkomendasikan)
 Metode ini jauh lebih cepat karena menyediakan mesin virtual yang sudah jadi, sehingga Anda tidak perlu melakukan proses instalasi dari awal.
 
-![SCREENSHOT](..\Gambar\VM-VB.png)
+![SCREENSHOT](../Gambar/VM-VB.png)
 
 * **Tautan Unduhan:** 🔗 [Kali Virtual Machines](https://www.kali.org/get-kali/#kali-virtual-machines)
 
@@ -121,7 +121,7 @@ Metode ini jauh lebih cepat karena menyediakan mesin virtual yang sudah jadi, se
 
 Metasploitable 2 didistribusikan dalam bentuk *Virtual Hard Disk* yang sudah jadi (berformat `.vmdk`), sehingga Anda tidak perlu melakukan proses penginstalan sistem operasi dari awal.
 
-![SCREENSHOT](..\Gambar\Metasploitable2.png)
+![SCREENSHOT](../Gambar/Metasploitable2.png)
 
 * **Tautan Unduhan:** 🔗 [Metasploitable 2 Download](https://sourceforge.net/projects/metasploitable2/)
 
