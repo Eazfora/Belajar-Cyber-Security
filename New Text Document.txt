@@ -1,0 +1,12 @@
+Reconnaissance ?
+Information Gathering ? = Active dan Passive, alatnya apa saja ?
+
+Ping ( memberi ICMP ( internet Control message protocol )) = sebagai tester apakah target aktif atau tidak, aktifitas ini termasuk legal. Jika respon menggunakan IPV6 ( terbaru ), kita juga bisa membuat respon menggunakan IPV4 dengan cara ping target -4 atau ping4 target.
+
+
+nslookup target ( cara melihat ip address, jika terdapat lebih dari 1 IP )
+
+Lalu cara passivenya menggunakan pihak ketiga atau tanpa berinteraksi langsung dengan target, contoh toolsnya: https://ip-checker.info/ip-address-check.php
+
+
+
