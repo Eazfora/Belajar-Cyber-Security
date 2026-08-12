@@ -54,7 +54,7 @@ Jika Anda sedang membangun laboratorium keamanan siber di VirtualBox:
 
 ## 💻 Panduan Instalasi VirtualBox
 
-![SCREENSHOT](..\Gambar\Virtualbox.png)
+![SCREENSHOT](Gambar\Virtualbox.png)
 
 Unduh file *installer* resmi melalui tautan berikut: 🔗 [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
