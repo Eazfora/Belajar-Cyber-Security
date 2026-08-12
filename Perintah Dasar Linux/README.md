@@ -104,6 +104,7 @@ mkdir belajar_hacking
 cd belajar_hacking
 touch target.txt
 ls
+```
 
 ### Misi 2: Satukan Semua Kekuatan! 🔥
 Ketik urutan perintah gabungan ini untuk melihat bagaimana manipulasi teks dan pencarian bekerja secara berdampingan:
@@ -111,3 +112,4 @@ Ketik urutan perintah gabungan ini untuk melihat bagaimana manipulasi teks dan p
 echo "Target 1: Linux" > lab.txt
 echo "Target 2: Windows" >> lab.txt
 cat lab.txt | grep "Windows"
+```

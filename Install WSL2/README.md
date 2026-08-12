@@ -1,4 +1,4 @@
-# 🐉 Panduan Migrasi dan Instalasi Kali Linux di WSL2
+# 🐉 Panduan Migrasi dan Instalasi Kali Linux di WSL2 ( Windows 10/11 )
 
 > ⚠️ **DISCLAIMER:** Jangan menggunakan WSL2 untuk keperluan eksploitasi yang tidak sah. Panduan ini dibuat murni untuk tujuan edukasi dan *Ethical Hacking*.
 
