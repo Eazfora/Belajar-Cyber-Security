@@ -200,4 +200,8 @@ Hasil akhir dari proses *penetration testing* adalah **Laporan Ethical Hacking**
 * **UpGrad:** [Phase of Ethical Hacking](https://www.upgrad.com/blog/what-is-ethical-hacking/)
 * **Medium:** [Types of Attacks](https://medium.com/@ankitvaghamshi/how-hackers-use-reconnaissance-to-plan-their-attack-be19a5b00921)
 * **Agus Hermanto:** [Types of Attacks](https://share.google/AMTYlxR7shlh4FqW9)
+* **kppn_timika:** [Types of Attacks](https://www.instagram.com/p/DXvyu05kXns/?utm_source=ig_web_button_share_sheet)
+
+
+
 
