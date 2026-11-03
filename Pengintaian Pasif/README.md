@@ -37,7 +37,7 @@ Berikut adalah perangkat penting yang dibutuhkan oleh setiap *pentester*, digabu
 ### 3. `theHarvester` — Penambangan Data OSINT
 * **Fungsi:** Alat OSINT otomatis untuk mengekstrak alamat email, nama karyawan, subdomain, IP, dan URL dari berbagai sumber publik seperti mesin pencari, LinkedIn, dan *database* publik.
 * **Cara Penggunaan:** Tentukan domain target dengan bendera `-d` dan sumber data dengan bendera `-b`.
-* **Contoh:** `theHarvester -d target.com -l 500 -b google`. Kueri ini berpotensi mengungkap titik masuk seperti `vpn.target.com`.
+* **Contoh:** `theHarvester -d target.com -l 500 -b all`. Kueri ini berpotensi mengungkap titik masuk seperti `vpn.target.com`.
 
 ### 4. Shodan — "Google untuk Peretas"
 * **Fungsi:** Mesin pencari khusus perangkat yang terhubung ke internet (server, router, CCTV, IoT, SCADA) yang digunakan untuk *banner grabbing*, mendeteksi port terbuka, OS, dan kerentanan (CVE) pada IP publik.
