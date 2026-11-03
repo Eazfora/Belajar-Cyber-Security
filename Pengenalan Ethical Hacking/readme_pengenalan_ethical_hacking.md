@@ -42,14 +42,53 @@ Banyak alat digunakan untuk mengeksploitasi sistem (seperti *Trojans, backdoor, 
 3.  **Shrink-wrap code:** Fitur tambahan bawaan dari program komersial (misal: makro MS Word) yang bisa disalahgunakan.
 4.  **Misconfigurations:** Kesalahan konfigurasi keamanan atau membiarkannya di tingkat terendah demi kemudahan pengguna.
 
-### Kategori Serangan
+# Klasifikasi Serangan Keamanan Siber (Cybersecurity Attacks)
 
-Serangan dapat diklasifikasikan menjadi **Aktif vs Pasif**, dan **Inside vs Outside**.
-*   *Serangan Aktif:* Mengubah sistem/jaringan (mempengaruhi ketersediaan, integritas, dan keaslian).
-*   *Serangan Pasif:* Hanya mengumpulkan informasi (melanggar kerahasiaan).
+Dokumen ini menjelaskan pengategorian serangan siber berdasarkan tindakan yang dilakukan pelaku dan asal muasal serangan terhadap perimeter keamanan organisasi.
+
+---
 
 ![Types of Attacks](/Gambar/Reconnaissance%20Type.png)
-> *Catatan: Sebagian besar pelanggaran keamanan justru berasal dari dalam organisasi itu sendiri (karyawan atau kontraktor).*
+
+## 1. Berdasarkan Tindakan: Serangan Aktif vs. Pasif
+Kategori ini melihat apakah serangan tersebut mengubah sistem atau hanya mengintip data.
+
+### 🕵️‍♂️ Serangan Pasif (*Passive Attack*)
+Pelaku hanya mengintai, memonitor, atau menyadap data tanpa mengubahnya dengan tujuan utama untuk mendapatkan informasi. Karena sistem tetap berjalan normal, serangan jenis ini sangat sulit dideteksi.
+* **Tujuan utama:** Memperoleh informasi rahasia.
+* **Dampak sistem:** Tidak ada perubahan pada sistem (berjalan normal).
+* **Contoh:** 
+  * Menyadap Wi-Fi publik (*Eavesdropping*).
+  * Menganalisis lalu lintas jaringan (*Traffic Analysis*).
+
+### ⚡ Serangan Aktif (*Active Attack*)
+Pelaku secara sengaja mengubah, merusak, menghapus, atau memanipulasi data dan sistem. Serangan ini berdampak langsung pada ketersediaan (*availability*) atau integritas (*integrity*) sistem.
+* **Tujuan utama:** Merusak atau memanipulasi data/sistem.
+* **Dampak sistem:** Mengganggu ketersediaan atau integritas data secara langsung.
+* **Contoh:**
+  * Mengubah isi pesan (*Man-in-the-Middle*).
+  * Menyamar sebagai orang lain (*Spoofing*).
+  * Membuat sistem lumpuh/down (*DoS/DDoS*).
+
+---
+
+![Types of Attacks](/Gambar/jenis%20serangan%20inside%20dan%20outside.png)
+
+## 2. Berdasarkan Asal Pelaku: Serangan *Inside* vs. *Outside*
+Kategori ini melihat posisi pelaku terhadap batasan keamanan (*security perimeter*) organisasi.
+
+### 🏢 Serangan Inside (*Insider Attack*)
+Serangan yang berasal dari orang dalam yang memiliki akses resmi ke jaringan atau sistem, namun menyalahgunakan hak akses tersebut.
+* **Pelaku:** Karyawan, mantan karyawan, atau kontraktor.
+* **Karakteristik:** Sudah memiliki hak akses resmi di dalam perimeter keamanan.
+* **Contoh:** Karyawan yang mencuri data rahasia perusahaan untuk dijual ke kompetitor.
+
+### 🌐 Serangan Outside (*Outsider Attack*)
+Serangan yang berasal dari luar organisasi oleh pihak asing yang tidak memiliki hak akses resmi. Pelaku harus menembus dinding pertahanan untuk bisa masuk.
+* **Pelaku:** Pihak luar, peretas asing, atau entitas luar lainnya.
+* **Karakteristik:** Harus menembus dinding pertahanan (seperti *firewall*) terlebih dahulu.
+* **Contoh:** Hacker dari negara lain yang mencoba meretas situs web perusahaan atau mengirimkan malware.
+
 
 ---
 
