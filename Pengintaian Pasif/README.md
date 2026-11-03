@@ -19,55 +19,55 @@ Pengintaian pasif bukan hanya langkah pertama dalam pengujian penetrasi, tetapi 
 Berikut adalah perangkat penting yang dibutuhkan oleh setiap *pentester*, digabungkan dengan detail fungsi dan cara penggunaannya:
 
 ### 1. `whois` — Kecerdasan Domain
-* **Fungsi:** Mengumpulkan informasi pendaftaran dan kepemilikan domain (OSINT pasif) dengan menampilkan detail registrar, tanggal pembuatan/kedaluwarsa domain, serta informasi kontak pemilik jika tidak disembunyikan[cite: 6]. Dapat memberikan petunjuk mengenai hubungan infrastruktur antar-domain.
-* **Cara Penggunaan:** Buka terminal dan ketikkan perintah beserta nama domain target tanpa protokol (`http`/`https`)[cite: 6].
-* **Contoh:** `whois target.com`[cite: 6]. Berpotensi mengungkap informasi kontak (seperti `admin@target.com`) yang berguna untuk *spear phishing* atau *credential stuffing*.
+* **Fungsi:** Mengumpulkan informasi pendaftaran dan kepemilikan domain (OSINT pasif) dengan menampilkan detail registrar, tanggal pembuatan/kedaluwarsa domain, serta informasi kontak pemilik jika tidak disembunyikan. Dapat memberikan petunjuk mengenai hubungan infrastruktur antar-domain.
+* **Cara Penggunaan:** Buka terminal dan ketikkan perintah beserta nama domain target tanpa protokol (`http`/`https`).
+* **Contoh:** `whois target.com`. Berpotensi mengungkap informasi kontak (seperti `admin@target.com`) yang berguna untuk *spear phishing* atau *credential stuffing*.
 
 ### 2. `dig` & `dnsrecon` — Enumerasi DNS
 **`dig` (Domain Information Groper)**
-* **Fungsi:** Melakukan kueri ke server DNS untuk mengumpulkan *records* suatu domain (A, MX, TXT, CNAME, NS) guna memetakan infrastruktur server target[cite: 6].
-* **Cara Penggunaan:** Ketik `dig` diikuti nama domain, dan tambahkan parameter tipe *record* untuk pencarian spesifik[cite: 6].
-* **Contoh:** `dig target.com MX` (mencari server email)[cite: 6]. Ini dapat mengungkap alamat seperti `mail.target.com`.
+* **Fungsi:** Melakukan kueri ke server DNS untuk mengumpulkan *records* suatu domain (A, MX, TXT, CNAME, NS) guna memetakan infrastruktur server target.
+* **Cara Penggunaan:** Ketik `dig` diikuti nama domain, dan tambahkan parameter tipe *record* untuk pencarian spesifik.
+* **Contoh:** `dig target.com MX` (mencari server email). Ini dapat mengungkap alamat seperti `mail.target.com`.
 
 **`dnsrecon`**
-* **Fungsi:** Alat enumerasi DNS tingkat lanjut berbasis Python untuk memetakan infrastruktur jaringan, menguji celah *Zone Transfer* (AXFR), melakukan *brute-force* subdomain, dan mengekstrak catatan SRV[cite: 6].
-* **Cara Penggunaan:** Gunakan argumen `-d` untuk menentukan domain target[cite: 6].
-* **Contoh:** `dnsrecon -d target.com -D subdomains.txt -t brt` (untuk *brute-force* subdomain menggunakan *wordlist*)[cite: 6].
+* **Fungsi:** Alat enumerasi DNS tingkat lanjut berbasis Python untuk memetakan infrastruktur jaringan, menguji celah *Zone Transfer* (AXFR), melakukan *brute-force* subdomain, dan mengekstrak catatan SRV.
+* **Cara Penggunaan:** Gunakan argumen `-d` untuk menentukan domain target.
+* **Contoh:** `dnsrecon -d target.com -D subdomains.txt -t brt` (untuk *brute-force* subdomain menggunakan *wordlist*).
 
 ### 3. `theHarvester` — Penambangan Data OSINT
-* **Fungsi:** Alat OSINT otomatis untuk mengekstrak alamat email, nama karyawan, subdomain, IP, dan URL dari berbagai sumber publik seperti mesin pencari, LinkedIn, dan *database* publik[cite: 6].
-* **Cara Penggunaan:** Tentukan domain target dengan bendera `-d` dan sumber data dengan bendera `-b`[cite: 6].
-* **Contoh:** `theHarvester -d target.com -l 500 -b google`[cite: 6]. Kueri ini berpotensi mengungkap titik masuk seperti `vpn.target.com`.
+* **Fungsi:** Alat OSINT otomatis untuk mengekstrak alamat email, nama karyawan, subdomain, IP, dan URL dari berbagai sumber publik seperti mesin pencari, LinkedIn, dan *database* publik.
+* **Cara Penggunaan:** Tentukan domain target dengan bendera `-d` dan sumber data dengan bendera `-b`.
+* **Contoh:** `theHarvester -d target.com -l 500 -b google`. Kueri ini berpotensi mengungkap titik masuk seperti `vpn.target.com`.
 
 ### 4. Shodan — "Google untuk Peretas"
-* **Fungsi:** Mesin pencari khusus perangkat yang terhubung ke internet (server, router, CCTV, IoT, SCADA) yang digunakan untuk *banner grabbing*, mendeteksi port terbuka, OS, dan kerentanan (CVE) pada IP publik[cite: 6].
-* **Cara Penggunaan:** Digunakan via situs web `shodan.io` dengan sintaks pencarian spesifik atau melalui CLI terminal[cite: 6].
-* **Contoh:** Melalui CLI `shodan search "port:22"`, atau via web `ssl:"target.com"`[cite: 6]. Hal ini berpotensi mengungkap server pengembang dengan kredensial *default*.
+* **Fungsi:** Mesin pencari khusus perangkat yang terhubung ke internet (server, router, CCTV, IoT, SCADA) yang digunakan untuk *banner grabbing*, mendeteksi port terbuka, OS, dan kerentanan (CVE) pada IP publik.
+* **Cara Penggunaan:** Digunakan via situs web `shodan.io` dengan sintaks pencarian spesifik atau melalui CLI terminal.
+* **Contoh:** Melalui CLI `shodan search "port:22"`, atau via web `ssl:"target.com"`. Hal ini berpotensi mengungkap server pengembang dengan kredensial *default*.
 
 ### 5. `crt.sh` — Log Transparansi Sertifikat
-* **Fungsi:** Antarmuka web untuk mencari log *Certificate Transparency* (CT), bertindak sebagai metode enumerasi pasif akurat untuk menemukan subdomain sah milik perusahaan berdasarkan sertifikat SSL/TLS mereka[cite: 6].
-* **Cara Penggunaan:** Kunjungi [https://crt.sh](https://crt.sh) dan masukkan *wildcard* sebelum nama domain[cite: 6].
-* **Contoh:** Pencarian `%.target.com` dapat mengungkapkan subdomain berharga seperti `dev.target.com`, `vpn.target.com`, dan `staging.target.com`[cite: 6].
+* **Fungsi:** Antarmuka web untuk mencari log *Certificate Transparency* (CT), bertindak sebagai metode enumerasi pasif akurat untuk menemukan subdomain sah milik perusahaan berdasarkan sertifikat SSL/TLS mereka.
+* **Cara Penggunaan:** Kunjungi [https://crt.sh](https://crt.sh) dan masukkan *wildcard* sebelum nama domain.
+* **Contoh:** Pencarian `%.target.com` dapat mengungkapkan subdomain berharga seperti `dev.target.com`, `vpn.target.com`, dan `staging.target.com`.
 
 ---
 
 ## 🌐 Teknik OSINT Lanjutan (Di Luar Alat Khusus)
 
 ### Google Dorking
-Teknik ini memanfaatkan operator pencarian tingkat lanjut pada Google untuk memetakan permukaan serangan (file/direktori terekspos) tanpa berinteraksi langsung dengan sistem target[cite: 6].
-* **`site:`** Membatasi pencarian pada satu domain/sub-domain tertentu (contoh: `site:target.com`)[cite: 6].
-* **`filetype:`** Memfilter pencarian berdasarkan ekstensi file, seperti PDF atau DOCX (contoh: `filetype:pdf`)[cite: 6].
-* **`inurl:`** Mencari kata spesifik di dalam struktur URL (contoh: `inurl:login`)[cite: 6].
-* **`intitle:`** Menampilkan halaman yang memiliki kata tertentu pada judul (contoh: `intitle:"dashboard"`)[cite: 6].
-* **`" "` (Kutip Ganda):** Memaksa pencarian frasa presisi[cite: 6].
-> **Contoh Kombinasi:** `site:target.com filetype:pdf confidential` atau pencarian repositori GitHub `site:github.com "target.com"`[cite: 6].
+Teknik ini memanfaatkan operator pencarian tingkat lanjut pada Google untuk memetakan permukaan serangan (file/direktori terekspos) tanpa berinteraksi langsung dengan sistem target.
+* **`site:`** Membatasi pencarian pada satu domain/sub-domain tertentu (contoh: `site:target.com`).
+* **`filetype:`** Memfilter pencarian berdasarkan ekstensi file, seperti PDF atau DOCX (contoh: `filetype:pdf`).
+* **`inurl:`** Mencari kata spesifik di dalam struktur URL (contoh: `inurl:login`).
+* **`intitle:`** Menampilkan halaman yang memiliki kata tertentu pada judul (contoh: `intitle:"dashboard"`).
+* **`" "` (Kutip Ganda):** Memaksa pencarian frasa presisi.
+> **Contoh Kombinasi:** `site:target.com filetype:pdf confidential` atau pencarian repositori GitHub `site:github.com "target.com"`.
 
 ### Teknik Tambahan
-* **Internet Archive (Wayback Machine):** Menggunakan `archive.org/web/` untuk menemukan *endpoint* API lama atau dokumen sensitif pada versi lampau situs web target[cite: 6].
-* **Analisis Repositori Kode Publik:** Mencari *source code* organisasi di GitHub/GitLab untuk menemukan *API key* atau kata sandi basis data yang tidak sengaja *hardcoded*[cite: 6].
-* **Analisis Media Sosial:** Menganalisis profil karyawan di LinkedIn/X untuk memetakan hierarki perusahaan (target *phishing*) dan spesifikasi infrastruktur teknologi dari sertifikasi mereka[cite: 6].
-* **Ekstraksi Metadata Dokumen:** Menggunakan alat seperti ExifTool pada dokumen publik target untuk mengungkap *username* lokal, jalur *folder*, atau versi *software* pembuat dokumen[cite: 6].
-* **Pencarian ASN (Autonomous System Number):** Memetakan seluruh rentang alamat IP (*netblock*) perusahaan via situs seperti BGP Toolkit untuk memperluas area pemindaian secara sah[cite: 6].
+* **Internet Archive (Wayback Machine):** Menggunakan `archive.org/web/` untuk menemukan *endpoint* API lama atau dokumen sensitif pada versi lampau situs web target.
+* **Analisis Repositori Kode Publik:** Mencari *source code* organisasi di GitHub/GitLab untuk menemukan *API key* atau kata sandi basis data yang tidak sengaja *hardcoded*.
+* **Analisis Media Sosial:** Menganalisis profil karyawan di LinkedIn/X untuk memetakan hierarki perusahaan (target *phishing*) dan spesifikasi infrastruktur teknologi dari sertifikasi mereka.
+* **Ekstraksi Metadata Dokumen:** Menggunakan alat seperti ExifTool pada dokumen publik target untuk mengungkap *username* lokal, jalur *folder*, atau versi *software* pembuat dokumen.
+* **Pencarian ASN (Autonomous System Number):** Memetakan seluruh rentang alamat IP (*netblock*) perusahaan via situs seperti BGP Toolkit untuk memperluas area pemindaian secara sah.
 
 ---
 
